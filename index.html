@@ -4,172 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loud Drywall TX LLC</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-}
-
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    padding: 15px 30px;
-}
-
-.logo {
-    color: #FFD700;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #FFD700;
-}
-
-/* SECTIONS */
-section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.divider {
-    height: 3px;
-    width: 60px;
-    background-color: #FFD700;
-    margin: 20px auto;
-}
-
-/* HOME */
-#home {
-    background: #f5f5f5;
-}
-
-/* SERVICE BOXES */
-.services, .areas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.box {
-    border: 1px solid #ddd;
-    padding: 20px;
-    width: 250px;
-    border-radius: 10px;
-}
-
-/* ABOUT */
-#about {
-    background-color: #000;
-    color: white;
-}
-
-.about-box {
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.6;
-}
-
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-}
-
-.gallery div {
-    background: #ddd;
-    height: 150px;
-}
-
-/* QUOTE */
-#quote form {
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-#quote input, #quote textarea {
-    margin: 10px 0;
-    padding: 10px;
-}
-
-button {
-    background-color: #FFD700;
-    border: none;
-    padding: 12px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: black;
-    color: white;
-}
-
-/* MOBILE */
-@media(max-width: 768px) {
-    nav {
-        display: flex;
-        flex-direction: column;
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-    <div class="logo">[YOUR LOGO]</div>
+    <img src="images/logo.png" class="logo">
+
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#quote">Get A Quote</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="quote.html">Get A Quote</a>
     </nav>
 </header>
 
-<!-- HOME -->
-<section id="home">
+<section class="hero">
     <h1>Professional Drywall Services in Austin, TX</h1>
-    <div class="divider"></div>
-    <p>Reliable, high-quality drywall installation, repair, and finishing.</p>
+    <p>Clean, smooth finishes you can trust.</p>
+</section>
 
-    <!-- INTRO -->
+<section>
     <h2>Introduction</h2>
     <div class="divider"></div>
-    <p>We provide expert drywall solutions for homeowners looking for clean, smooth finishes and dependable service.</p>
+    <p>We provide expert drywall installation, repair, and finishing for homes across Central Texas.</p>
+</section>
 
-    <!-- SERVICE AREAS -->
+<section>
     <h2>Service Areas</h2>
     <div class="divider"></div>
-    <div class="areas">
-        <div class="box">Austin</div>
-        <div class="box">Round Rock</div>
-        <div class="box">Leander</div>
-        <div class="box">Cedar Park</div>
-        <div class="box">Georgetown</div>
-        <div class="box">Liberty Hill</div>
-    </div>
 
-    <!-- SERVICES -->
+    <!-- GOOGLE MAP -->
+    <div id="map"></div>
+</section>
+
+<section>
     <h2>What We Offer</h2>
     <div class="divider"></div>
+
     <div class="services">
         <div class="box">Drywall Installation</div>
         <div class="box">Drywall Repair</div>
@@ -179,50 +52,34 @@ button:hover {
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-    <h1>About Us</h1>
-    <div class="divider"></div>
+<script>
+function initMap() {
+    const locations = [
+        { lat: 30.2672, lng: -97.7431 }, // Austin
+        { lat: 30.5083, lng: -97.6789 }, // Round Rock
+        { lat: 30.5788, lng: -97.8531 }, // Leander
+        { lat: 30.5052, lng: -97.8203 }, // Cedar Park
+        { lat: 30.6333, lng: -97.6770 }, // Georgetown
+        { lat: 30.6641, lng: -97.9228 }  // Liberty Hill
+    ];
 
-    <div class="about-box">
-        <p>
-        We are a locally owned, husband and wife-operated business specializing in expert drywall installation, repair, and finishing for residential properties throughout Austin and the surrounding areas. Our skilled drywall team is committed to delivering smooth, seamless walls and ceilings—whether you're constructing a new space, remodeling an existing one, or addressing water or impact damage.
-        </p>
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 9,
+        center: { lat: 30.4, lng: -97.7 }
+    });
 
-        <p>
-        ✔ Free Estimates <br>
-        ✔ Fast Turnaround <br>
-        ✔ Quality Work Guaranteed
-        </p>
-    </div>
-</section>
+    locations.forEach(loc => {
+        new google.maps.Marker({
+            position: loc,
+            map: map
+        });
+    });
+}
+</script>
 
-<!-- GALLERY -->
-<section id="gallery">
-    <h1>Gallery</h1>
-    <div class="divider"></div>
-
-    <div class="gallery">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</section>
-
-<!-- QUOTE -->
-<section id="quote">
-    <h1>Get A Quote</h1>
-    <div class="divider"></div>
-
-    <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="Phone">
-        <textarea placeholder="Describe your project"></textarea>
-        <button type="submit">Request Quote</button>
-    </form>
-</section>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
+</script>
 
 </body>
 </html>
