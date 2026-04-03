@@ -1,271 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoudrywallTX LLC</title>
-  <style>
-    :root {
-      --black: #0a0a0a;
-      --yellow: #f5c400;
-      --white: #ffffff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loud Drywall TX LLC</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
 
-    body {
-      background: var(--white);
-      color: var(--black);
-      line-height: 1.6;
-    }
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 15px 30px;
+}
 
-    header {
-      background: var(--black);
-      color: var(--white);
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.logo {
+    color: #FFD700;
+    font-size: 20px;
+    font-weight: bold;
+}
 
-    header h1 {
-      color: var(--yellow);
-      font-size: 1.5rem;
-    }
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    nav a {
-      color: var(--white);
-      margin-left: 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav a:hover {
+    color: #FFD700;
+}
 
-    nav a:hover {
-      color: var(--yellow);
-    }
+/* SECTIONS */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
 
-    .hero {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-      padding: 80px 20px;
-    }
+.divider {
+    height: 3px;
+    width: 60px;
+    background-color: #FFD700;
+    margin: 20px auto;
+}
 
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: var(--yellow);
-    }
+/* HOME */
+#home {
+    background: #f5f5f5;
+}
 
-    .btn {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
-      padding: 10px 20px;
-      margin-top: 15px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 5px;
-    }
+/* SERVICE BOXES */
+.services, .areas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
-    section {
-      padding: 50px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+/* ABOUT */
+#about {
+    background-color: #000;
+    color: white;
+}
 
-    .card {
-      border: 2px solid var(--black);
-      padding: 20px;
-      border-radius: 8px;
-    }
+.about-box {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
 
-    .card h3 {
-      color: var(--yellow);
-      margin-bottom: 10px;
-    }
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
-    }
+.gallery div {
+    background: #ddd;
+    height: 150px;
+}
 
-    .gallery img {
-      width: 100%;
-      border-radius: 5px;
-    }
+/* QUOTE */
+#quote form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+#quote input, #quote textarea {
+    margin: 10px 0;
+    padding: 10px;
+}
 
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+button {
+    background-color: #FFD700;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-    footer {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-      padding: 20px;
-    }
+button:hover {
+    background-color: black;
+    color: white;
+}
 
-    /* Mobile Friendly */
-    @media (max-width: 768px) {
-      header {
+/* MOBILE */
+@media(max-width: 768px) {
+    nav {
+        display: flex;
         flex-direction: column;
-        text-align: center;
-      }
-
-      nav {
-        margin-top: 10px;
-      }
     }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-    }
-
-    .modal-content {
-      background: var(--white);
-      margin: 10% auto;
-      padding: 20px;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 8px;
-    }
-
-    .close {
-      float: right;
-      cursor: pointer;
-      font-size: 20px;
-    }
-  </style>
+}
+</style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>LoudrywallTX LLC</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <div class="logo">[YOUR LOGO]</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#quote">Get A Quote</a>
+    </nav>
 </header>
 
-<section class="hero">
-  <h2>Professional Drywall Services in Texas</h2>
-  <p>Reliable • Affordable • High Quality Work</p>
-  <button class="btn" onclick="openModal()">Request a Quote</button>
+<!-- HOME -->
+<section id="home">
+    <h1>Professional Drywall Services in Austin, TX</h1>
+    <div class="divider"></div>
+    <p>Reliable, high-quality drywall installation, repair, and finishing.</p>
+
+    <!-- INTRO -->
+    <h2>Introduction</h2>
+    <div class="divider"></div>
+    <p>We provide expert drywall solutions for homeowners looking for clean, smooth finishes and dependable service.</p>
+
+    <!-- SERVICE AREAS -->
+    <h2>Service Areas</h2>
+    <div class="divider"></div>
+    <div class="areas">
+        <div class="box">Austin</div>
+        <div class="box">Round Rock</div>
+        <div class="box">Leander</div>
+        <div class="box">Cedar Park</div>
+        <div class="box">Georgetown</div>
+        <div class="box">Liberty Hill</div>
+    </div>
+
+    <!-- SERVICES -->
+    <h2>What We Offer</h2>
+    <div class="divider"></div>
+    <div class="services">
+        <div class="box">Drywall Installation</div>
+        <div class="box">Drywall Repair</div>
+        <div class="box">Tape & Float</div>
+        <div class="box">Texture Matching</div>
+        <div class="box">Ceiling Repair</div>
+    </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-  <h2>About Us</h2>
-  <p>
-    LoudrywallTX LLC provides professional drywall installation, repair, and finishing services.
-    We proudly serve residential and commercial clients with high-quality craftsmanship and dependable service.
-  </p>
+    <h1>About Us</h1>
+    <div class="divider"></div>
+
+    <div class="about-box">
+        <p>
+        We are a locally owned, husband and wife-operated business specializing in expert drywall installation, repair, and finishing for residential properties throughout Austin and the surrounding areas. Our skilled drywall team is committed to delivering smooth, seamless walls and ceilings—whether you're constructing a new space, remodeling an existing one, or addressing water or impact damage.
+        </p>
+
+        <p>
+        ✔ Free Estimates <br>
+        ✔ Fast Turnaround <br>
+        ✔ Quality Work Guaranteed
+        </p>
+    </div>
 </section>
 
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card">
-      <h3>Drywall Installation</h3>
-      <p>New construction and remodeling drywall installation.</p>
-    </div>
-    <div class="card">
-      <h3>Drywall Repair</h3>
-      <p>Patch holes, cracks, water damage, and more.</p>
-    </div>
-    <div class="card">
-      <h3>Finishing & Texture</h3>
-      <p>Smooth finishes, taping, mudding, and texture matching.</p>
-    </div>
-  </div>
-</section>
-
+<!-- GALLERY -->
 <section id="gallery">
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <img src="https://via.placeholder.com/400" alt="project1" />
-    <img src="https://via.placeholder.com/400" alt="project2" />
-    <img src="https://via.placeholder.com/400" alt="project3" />
-  </div>
+    <h1>Gallery</h1>
+    <div class="divider"></div>
+
+    <div class="gallery">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </section>
 
-<section id="contact">
-  <h2>Contact Us</h2>
-  <form>
-    <input type="text" placeholder="Name" required />
-    <input type="email" placeholder="Email" required />
-    <input type="tel" placeholder="Phone" />
-    <textarea rows="5" placeholder="Project Details"></textarea>
-    <button class="btn" type="submit">Send Request</button>
-  </form>
-</section>
+<!-- QUOTE -->
+<section id="quote">
+    <h1>Get A Quote</h1>
+    <div class="divider"></div>
 
-<footer>
-  <p>© 2026 LoudrywallTX LLC | All Rights Reserved</p>
-</footer>
-
-<!-- Modal -->
-<div id="quoteModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Request a Quote</h2>
     <form>
-      <input type="text" placeholder="Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="tel" placeholder="Phone" />
-      <textarea rows="4" placeholder="Project Details"></textarea>
-      <button class="btn" type="submit">Submit</button>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone">
+        <textarea placeholder="Describe your project"></textarea>
+        <button type="submit">Request Quote</button>
     </form>
-  </div>
-</div>
-
-<script>
-  function openModal() {
-    document.getElementById('quoteModal').style.display = 'block';
-  }
-
-  function closeModal() {
-    document.getElementById('quoteModal').style.display = 'none';
-  }
-
-  window.onclick = function(event) {
-    const modal = document.getElementById('quoteModal');
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  }
-</script>
+</section>
 
 </body>
 </html>
